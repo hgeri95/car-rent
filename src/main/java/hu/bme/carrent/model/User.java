@@ -1,11 +1,6 @@
 package hu.bme.carrent.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -31,9 +26,10 @@ public class User implements Serializable {
     @Enumerated(value = EnumType.STRING)
     private Set<Role> roles;
 
-    @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            mappedBy = "owner")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH},
+            mappedBy = "owner",
+            orphanRemoval = true
+    )
     @JsonManagedReference
     private Set<Car> cars = new HashSet<>();
 
@@ -83,6 +79,7 @@ public class User implements Serializable {
     }
 
     public void setCars(Set<Car> cars) {
-        this.cars = cars;
+        this.cars.clear();
+        this.cars.addAll(cars);
     }
 }

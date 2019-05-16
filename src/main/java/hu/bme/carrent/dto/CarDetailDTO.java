@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-public class CarDTO implements Serializable {
+public class CarDetailDTO implements Serializable {
 
     private Long id;
 
@@ -22,16 +22,16 @@ public class CarDTO implements Serializable {
     @NotNull
     private int capacity;
 
-    private Long ownerId;
+    private ReducedUserDTO owner;
 
-    public CarDTO() {
+    public CarDetailDTO() {
     }
 
-    public CarDTO(Long id, @NotBlank String type, @NotBlank String city, @NotNull int capacity, Long ownerId) {
+    public CarDetailDTO(Long id, @NotBlank String type, @NotBlank String city, @NotNull int capacity, ReducedUserDTO owner) {
         this.id = id;
         this.type = type;
         this.city = city;
         this.capacity = capacity;
-        this.ownerId = ownerId;
+        this.owner = owner;
     }
 }

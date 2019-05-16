@@ -53,6 +53,14 @@ public class CarRepositoryIntegrationTest {
         assertEquals(2, userRepository.findAll().get(0).getCars().size());
         assertEquals(2, carRepository.findAll().size());
 
+        user = userRepository.findAll().get(0);
+        Set<Car> cars = new HashSet<>();
+        cars.add(car);
+        user.setCars(cars);
+        userRepository.saveAndFlush(user);
+        assertEquals(1, userRepository.findAll().get(0).getCars().size());
+        assertEquals(1, carRepository.findAll().size());
+
         userRepository.deleteAll();
         assertEquals(0, userRepository.findAll().size());
         assertEquals(0, carRepository.findAll().size());
@@ -80,10 +88,6 @@ public class CarRepositoryIntegrationTest {
         Reservation reservation2 = new Reservation(car, customer2, new Date(), new Date());
         reservationRepository.saveAndFlush(reservation2);
 
-        assertEquals(2, reservationRepository.findAll().size());
-
-        userRepository.deleteUserByUsername("c2");
-        assertEquals(2, userRepository.findAll().size());
         assertEquals(2, reservationRepository.findAll().size());
 
         reservationRepository.deleteAll();

@@ -1,10 +1,6 @@
 package hu.bme.carrent.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -28,7 +24,7 @@ public class Car implements Serializable {
     @NotNull
     private int capacity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "owner_id", nullable = false)
     @JsonBackReference
     private User owner;
