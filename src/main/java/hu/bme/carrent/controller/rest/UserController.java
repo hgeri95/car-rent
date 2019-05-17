@@ -1,7 +1,6 @@
-package hu.bme.carrent.controller;
+package hu.bme.carrent.controller.rest;
 
 import hu.bme.carrent.dto.UserDTO;
-import hu.bme.carrent.service.CarService;
 import hu.bme.carrent.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

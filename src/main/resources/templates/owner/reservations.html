@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Reservations</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Reservations</h1>
+            <table border="2">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>CarId</th>
+                    <th>Username</th>
+                    <th>Start</th>
+                    <th>End</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${reservations.empty}">
+                    <td colspan="2">No reservations available</td>
+                </tr>
+                <tr th:each="r: ${reservations}">
+                    <td><span th:text="${r.id}">Id</span></td>
+                    <td><span th:text="${r.car.id}">CarId</span></td>
+                    <td><span th:text="${r.user.username}">Username</span></td>
+                    <td><span th:text="${r.start}">Start</span></td>
+                    <td><span th:text="${r.end}">End</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <p><a href="/ownerpage" th:href="@{/ownerpage}">Back to main page</a></p>
+
+</div>
+</body>
+</html>

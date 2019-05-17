@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Add car</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Add car</h1>
+            <form action="#" th:action="@{/ownerpage/car}" th:object="${car}" method="post">
+                <div class="form-group">
+                    <span th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span>
+                    <label for="type">Type</label>:
+                    <input type="text" id="type"
+                           th:field="*{type}"
+                           name="type"
+                           class="form-control"
+                           autofocus="autofocus"
+                           placeholder="Type">
+                </div>
+                <div class="form-group">
+                    <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
+                    <label for="city">City</label>:
+                    <input type="text" id="city"
+                           th:field="*{city}"
+                           name="city"
+                           class="form-control"
+                           placeholder="City">
+                </div>
+                <div class="form-group">
+                    <label for="capacity">Capacity</label>:
+                    <input type="number" id="capacity"
+                           th:field="*{capacity}"
+                           name="capacity"
+                           class="form-control"
+                           placeholder="Capacity">
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="submit"
+                                   id="register-submit"
+                                   value="Add">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <p><a href="/ownerpage" th:href="@{/ownerpage}">Back to main page</a></p>
+
+</div>
+</body>
+</html>

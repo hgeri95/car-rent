@@ -22,7 +22,7 @@ public class User implements Serializable {
     @NotBlank
     private String password;
 
-    @ElementCollection(targetClass = Role.class)
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @Enumerated(value = EnumType.STRING)
     private Set<Role> roles;
 

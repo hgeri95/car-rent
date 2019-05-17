@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Owner page</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <h1>Choose an option!</h1>
+    <ul>
+        <li>Add car:<a href="/ownerpage/car" th:href="@{/ownerpage/car}">add car</a></li>
+        <li>Owned cars:<a href="/ownerpage/cars" th:href="@{/ownerpage/cars}">cars</a></li>
+        <li>Reservations:<a href="/ownerpage/reservations" th:href="@{/ownerpage/reservations}">reservations</a></li>
+    </ul>
+    <p><a href="/" th:href="@{/}">Back to home page</a></p>
+</div>
+</body>
+</html>

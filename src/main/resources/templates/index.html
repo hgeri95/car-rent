@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Index</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <h1>Welcome on the Car Rent page</h1>
+    <p>Select an option:</p>
+    <ul>
+        <li>Login: <a href="/login" th:href="@{/login}">login</a></li>
+        <li>Register: <a href="/register" th:href="@{/register}">register</a></li>
+    </ul>
+</div>
+</body>
+</html>

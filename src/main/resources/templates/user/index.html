@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Secured</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <h1>Choose an option!</h1>
+    <ul>
+        <li>View cars:<a href="/userpage/cars" th:href="@{/userpage/cars}">view cars</a></li>
+        <li>Search:<a href="/userpage/search" th:href="@{/userpage/search}">search</a></li>
+        <li>Reservations:<a href="/userpage/reservations" th:href="@{/userpage/reservations}">reservations</a></li>
+    </ul>
+    <p><a href="/" th:href="@{/}">Back to home page</a></p>
+</div>
+</body>
+</html>

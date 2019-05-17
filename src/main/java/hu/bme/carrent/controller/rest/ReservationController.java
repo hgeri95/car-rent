@@ -1,4 +1,4 @@
-package hu.bme.carrent.controller;
+package hu.bme.carrent.controller.rest;
 
 import hu.bme.carrent.dto.ReservationDTO;
 import hu.bme.carrent.dto.ReservationRequest;

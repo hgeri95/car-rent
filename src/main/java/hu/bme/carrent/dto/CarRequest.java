@@ -20,4 +20,14 @@ public class CarRequest implements Serializable {
     private int capacity;
 
     private Long ownerId;
+
+    public CarRequest(@NotBlank String type, @NotBlank String city, @NotNull int capacity, Long ownerId) {
+        this.type = type;
+        this.city = city;
+        this.capacity = capacity;
+        this.ownerId = ownerId;
+    }
+
+    public CarRequest() {
+    }
 }

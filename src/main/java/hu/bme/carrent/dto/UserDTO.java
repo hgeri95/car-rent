@@ -25,4 +25,13 @@ public class UserDTO implements Serializable {
     private Set<Role> roles = new HashSet<>();
 
     private Set<Car> cars = new HashSet<>();
+
+    public UserDTO() {
+    }
+
+    public UserDTO(@NotBlank String username, @NotBlank String password, Set<Role> roles) {
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+    }
 }

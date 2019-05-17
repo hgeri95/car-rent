@@ -1,4 +1,4 @@
-package hu.bme.carrent.controller;
+package hu.bme.carrent.controller.rest;
 
 import hu.bme.carrent.dto.*;
 import hu.bme.carrent.service.CarService;

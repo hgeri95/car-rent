@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>View Cars</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>View cars</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Type</th>
+                        <th>City</th>
+                        <th>Capacity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${cars.empty}">
+                        <td colspan="2">No cars available</td>
+                    </tr>
+                    <tr th:each="car: ${cars}">
+                        <td><span th:text="${car.id}">Id</span></td>
+                        <td><span th:text="${car.type}">Type</span></td>
+                        <td><span th:text="${car.city}">City</span></td>
+                        <td><span th:text="${car.capacity}">Capacity</span></td>
+                        <td><a th:href="@{/userpage/cardetails/{id}(id=${car.id})}">Details</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <p><a href="/userpage" th:href="@{/userpage}">Back to main page</a></p>
+
+</div>
+</body>
+</html>
